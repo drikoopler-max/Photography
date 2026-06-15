@@ -580,63 +580,108 @@
     </section>
 
     <!-- === ПОРТФОЛІО === -->
-    <section class="portfolio-section" id="portfolio">
-      <div class="portfolio-header">
-        <div>
-          <h2 data-i18n="portfolioTitle">Вибране портфоліо</h2>
-          <div class="gold-line"></div>
-        </div>
-        <div class="portfolio-filters" id="portfolioFilters">
-          <button class="filter-btn active" data-filter="all" data-i18n="filterAll">Усі роботи</button>
-          <button class="filter-btn" data-filter="portrait" data-i18n="filterPortrait">Premium Portrait</button>
-          <button class="filter-btn" data-filter="lovestory" data-i18n="filterLove">Cinematic Love Story</button>
-          <button class="filter-btn" data-filter="fashion" data-i18n="filterFashion">Fashion & Commercial</button>
-        </div>
+ <!-- === ПОРТФОЛІО === -->
+<section class="portfolio-section" id="portfolio">
+  <div class="portfolio-header">
+    <div>
+      <h2 data-i18n="portfolioTitle">Вибране портфоліо</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="portfolio-filters" id="portfolioFilters">
+      <button class="filter-btn active" data-filter="all" data-i18n="filterAll">Усі роботи</button>
+      <button class="filter-btn" data-filter="portrait" data-i18n="filterPortrait">Premium Portrait</button>
+      <button class="filter-btn" data-filter="lovestory" data-i18n="filterLove">Cinematic Love Story</button>
+      <button class="filter-btn" data-filter="fashion" data-i18n="filterFashion">Fashion & Commercial</button>
+    </div>
+  </div>
+  <div class="portfolio-grid" id="portfolioGrid">
+    
+    <!-- === Premium Portrait === -->
+    <!-- Фото 1 -->
+    <div class="portfolio-item" data-category="portrait">
+      <img src="lucid-origin_professional_photo_of_A_stylish_young_woman_influencer_typing_on_a_minimalist_la-0 2.jpg" alt="Глибокий портрет" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="portfolio-overlay">
+        <h4>Глибокий портрет</h4>
+        <p>Premium Portrait</p>
       </div>
-      <div class="portfolio-grid" id="portfolioGrid">
-        <!-- 9 елементів портфоліо (по 3 на категорію) -->
-        <div class="portfolio-item" data-category="portrait">
-          <img src="lucid-origin_professional_photo_of_A_stylish_young_woman_influencer_typing_on_a_minimalist_la-0 2.jpg" alt="Глибокий портрет" style="width: 100%; height: 100%; object-fit: cover;">
-
-          <div class="portfolio-overlay"><h4>Глибокий портрет</h4><p>Premium Portrait</p></div>
-        </div>
-       <img src="lucid-origin_professional_photo_of_A_candid_portrait_of_a_stylish_woman_sitting_in_an_outdoor-0.jpg" alt="Характер у кадрі" style="width: 100%; height: 100%; object-fit: cover;">
-
-        <img src="lucid-origin_professional_photo_of_Emotional_close-up_portrait_of_a_thoughtful_woman_soft_cin-0 2.jpg" alt="Внутрішня сила" style="width: 100%; height: 100%; object-fit: cover;">
-
-          <div class="portfolio-overlay"><h4>Характер у кадрі</h4><p>Premium Portrait</p></div>
-        </div>
-        <div class="portfolio-item" data-category="portrait">
-          <div class="portfolio-img-placeholder"><span>PORTRAIT 3</span></div>
-          <div class="portfolio-overlay"><h4>Внутрішня сила</h4><p>Premium Portrait</p></div>
-        </div>
-        <div class="portfolio-item" data-category="lovestory">
-        <img src="lucid-origin_professional_photo_of_An_intimate_lifestyle_shot_of_a_couple_hugging_in_a_cozy_m-0.jpg.jpg" alt="лав сторі" style="width: 100%; height: 100%; object-fit: cover;">
-
-          <div class="portfolio-overlay"><h4>Історія кохання</h4><p>Cinematic Love Story</p></div>
-        </div>
-        <div class="portfolio-item" data-category="lovestory">
-          <div class="portfolio-img-placeholder"><span>LOVE 2</span></div>
-          <div class="portfolio-overlay"><h4>Щирість моменту</h4><p>Cinematic Love Story</p></div>
-        </div>
-        <div class="portfolio-item" data-category="lovestory">
-          <div class="portfolio-img-placeholder"><span>LOVE 3</span></div>
-          <div class="portfolio-overlay"><h4>Тепло почуттів</h4><p>Cinematic Love Story</p></div>
-        </div>
-        <div class="portfolio-item" data-category="fashion">
-          <div class="portfolio-img-placeholder"><span>FASHION 1</span></div>
-          <div class="portfolio-overlay"><h4>Брендова естетика</h4><p>Fashion & Commercial</p></div>
-        </div>
-        <div class="portfolio-item" data-category="fashion">
-          <div class="portfolio-img-placeholder"><span>FASHION 2</span></div>
-          <div class="portfolio-overlay"><h4>Комерційний стиль</h4><p>Fashion & Commercial</p></div>
-        </div>
-        <div class="portfolio-item" data-category="fashion">
-          <div class="portfolio-img-placeholder"><span>FASHION 3</span></div>
-          <div class="portfolio-overlay"><h4>Візуальний контент</h4><p>Fashion & Commercial</p></div>
-        </div>
+    </div>
+    
+    <!-- Фото 2 -->
+    <div class="portfolio-item" data-category="portrait">
+      <img src="lucid-origin_professional_photo_of_A_candid_portrait_of_a_stylish_woman_sitting_in_an_outdoor-0.jpg" alt="Характер у кадрі" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="portfolio-overlay">
+        <h4>Характер у кадрі</h4>
+        <p>Premium Portrait</p>
       </div>
-    </section>
+    </div>
+    
+    <!-- Фото 3 -->
+    <div class="portfolio-item" data-category="portrait">
+      <img src="lucid-origin_professional_photo_of_Emotional_close-up_portrait_of_a_thoughtful_woman_soft_cin-0 2.jpg" alt="Внутрішня сила" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="portfolio-overlay">
+        <h4>Внутрішня сила</h4>
+        <p>Premium Portrait</p>
+      </div>
+    </div>
+    
+    <!-- === Cinematic Love Story === -->
+    <!-- Фото 4 -->
+    <div class="portfolio-item" data-category="lovestory">
+      <img src="lucid-origin_professional_photo_of_An_intimate_lifestyle_shot_of_a_couple_hugging_in_a_cozy_m-0.jpg.jpg" alt="Історія кохання" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="portfolio-overlay">
+        <h4>Історія кохання</h4>
+        <p>Cinematic Love Story</p>
+      </div>
+    </div>
+    
+    <!-- Фото 5 (заглушка) -->
+    <div class="portfolio-item" data-category="lovestory">
+      <div class="portfolio-img-placeholder"><span>LOVE 2</span></div>
+      <div class="portfolio-overlay">
+        <h4>Щирість моменту</h4>
+        <p>Cinematic Love Story</p>
+      </div>
+    </div>
+    
+    <!-- Фото 6 (заглушка) -->
+    <div class="portfolio-item" data-category="lovestory">
+      <div class="portfolio-img-placeholder"><span>LOVE 3</span></div>
+      <div class="portfolio-overlay">
+        <h4>Тепло почуттів</h4>
+        <p>Cinematic Love Story</p>
+      </div>
+    </div>
+    
+    <!-- === Fashion & Commercial === -->
+    <!-- Фото 7 (заглушка) -->
+    <div class="portfolio-item" data-category="fashion">
+      <div class="portfolio-img-placeholder"><span>FASHION 1</span></div>
+      <div class="portfolio-overlay">
+        <h4>Брендова естетика</h4>
+        <p>Fashion & Commercial</p>
+      </div>
+    </div>
+    
+    <!-- Фото 8 (заглушка) -->
+    <div class="portfolio-item" data-category="fashion">
+      <div class="portfolio-img-placeholder"><span>FASHION 2</span></div>
+      <div class="portfolio-overlay">
+        <h4>Комерційний стиль</h4>
+        <p>Fashion & Commercial</p>
+      </div>
+    </div>
+    
+    <!-- Фото 9 (заглушка) -->
+    <div class="portfolio-item" data-category="fashion">
+      <div class="portfolio-img-placeholder"><span>FASHION 3</span></div>
+      <div class="portfolio-overlay">
+        <h4>Візуальний контент</h4>
+        <p>Fashion & Commercial</p>
+      </div>
+    </div>
+    
+  </div>
+</section>
 
     <!-- Про мене -->
     <section class="about-section" id="about">
