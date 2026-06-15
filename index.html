@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>Олександр Вернер | Фотограф & Візуальний Режисер</title>
-  <!-- Підключення шрифтів: елегантний для заголовків + чистий для тексту -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
@@ -29,7 +28,6 @@
       padding: 0 2rem;
     }
 
-    /* Типографіка */
     h1, h2, h3, .serif {
       font-family: 'Playfair Display', serif;
       font-weight: 500;
@@ -43,7 +41,7 @@
     }
 
     .accent-text {
-      color: #C8A87C; /* тепле золото */
+      color: #C8A87C;
     }
 
     .gold-line {
@@ -100,15 +98,82 @@
       font-weight: 600;
     }
 
-    /* Hero секція */
-    .hero {
+    /* === НОВА СЕКЦІЯ: Фото фотографа + Hero === */
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      min-height: 85vh;
+      padding: 2rem 0 4rem;
+    }
+
+    .photographer-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-frame {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+      aspect-ratio: 3/4;
+      background: #1A1A1A;
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+      border: 1px solid #2A2A2A;
+    }
+
+    /* Заглушка фото (замінити на реальне зображення) */
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 50%, #1a1a1a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .image-placeholder::before {
+      content: "OLEKSANDR WERNER";
+      position: absolute;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: rgba(200, 168, 124, 0.3);
+      letter-spacing: 3px;
+    }
+
+    .image-placeholder::after {
+      content: "";
+      position: absolute;
+      inset: 15px;
+      border: 1px solid rgba(200, 168, 124, 0.2);
+      border-radius: 2px;
+    }
+
+    /* Акцентна лінія позаду фото */
+    .photographer-image::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 90%;
+      max-width: 450px;
+      border: 2px solid #C8A87C;
+      top: 20px;
+      left: -20px;
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    .hero-content {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      min-height: 85vh;
       justify-content: center;
-      padding: 2rem 0 4rem;
-      position: relative;
     }
 
     .hero-name {
@@ -120,19 +185,18 @@
       font-weight: 400;
     }
 
-    .hero h1 {
-      font-size: clamp(3rem, 8vw, 5.2rem);
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
       line-height: 1.15;
       margin-bottom: 1.8rem;
-      max-width: 900px;
       font-weight: 600;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
+    .hero-content p {
+      font-size: 1.15rem;
+      max-width: 550px;
       color: #B0B0B0;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       font-weight: 300;
     }
 
@@ -177,6 +241,114 @@
 
     .btn-secondary:hover {
       background: rgba(200, 168, 124, 0.1);
+    }
+
+    /* === НОВА СЕКЦІЯ: Портфоліо === */
+    .portfolio-section {
+      padding: 5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .portfolio-filters {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid #2A2A2A;
+      color: #999;
+      padding: 0.6rem 1.4rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: #C8A87C;
+      border-color: #C8A87C;
+      color: #0A0A0A;
+      font-weight: 600;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      aspect-ratio: 1/1;
+      background: #141414;
+      border-radius: 2px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid #1F1F1F;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .portfolio-item:hover {
+      border-color: #C8A87C;
+      transform: scale(1.02);
+    }
+
+    .portfolio-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #1a1a1a, #222);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .portfolio-img-placeholder span {
+      font-family: 'Playfair Display', serif;
+      color: rgba(200, 168, 124, 0.25);
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,10,10,0.75);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .portfolio-overlay p {
+      font-size: 0.8rem;
+      color: #C8A87C;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     /* Про мене */
@@ -340,23 +512,46 @@
       border-top: 1px solid rgba(255,255,255,0.03);
     }
 
+    /* Адаптивність */
+    @media (max-width: 992px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        min-height: auto;
+      }
+      .photographer-image {
+        order: -1;
+        max-width: 350px;
+        margin: 0 auto;
+      }
+      .photographer-image::before {
+        display: none;
+      }
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 768px) {
       .about-section, .contact-section {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
       .steps-container {
+        grid-template-columns: 1fr 1fr;
+      }
+      .portfolio-grid {
         grid-template-columns: 1fr;
       }
-      .hero h1 {
-        font-size: 2.8rem;
+      .hero-content h1 {
+        font-size: 2.5rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Навігація з перемикачем мов -->
+    <!-- Навігація -->
     <nav>
       <div class="logo">WERNER</div>
       <div class="lang-switch" id="langSwitch">
@@ -365,14 +560,78 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-      <div class="hero-name" data-i18n="heroName">Олександр Вернер | Фотограф & Візуальний Режисер</div>
-      <h1 data-i18n="heroTitle">Створюю кадри, які стають вашою найкращою історією.</h1>
-      <p data-i18n="heroSub">Преміальна кінематографічна та fashion-фотографія. Без штучних поз і напруження — лише ваша справжня естетика, підкреслена авторським світлом і стилем.</p>
-      <div class="cta-group">
-        <button class="btn-primary" data-i18n="cta1">Переглянути портфоліо</button>
-        <button class="btn-secondary" data-i18n="cta2">Забронювати зйомку</button>
+    <!-- Hero + Фото фотографа -->
+    <section class="hero-wrapper" id="hero">
+      <div class="photographer-image">
+        <div class="image-frame">
+          <div class="image-placeholder">
+            <!-- ЗАМІНИТИ: <img src="your-photo.jpg" alt="Oleksandr Werner" style="width:100%; height:100%; object-fit:cover;"> -->
+          </div>
+        </div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-name" data-i18n="heroName">Олександр Вернер | Фотограф & Візуальний Режисер</div>
+        <h1 data-i18n="heroTitle">Створюю кадри, які стають вашою найкращою історією.</h1>
+        <p data-i18n="heroSub">Преміальна кінематографічна та fashion-фотографія. Без штучних поз і напруження — лише ваша справжня естетика, підкреслена авторським світлом і стилем.</p>
+        <div class="cta-group">
+          <button class="btn-primary" data-i18n="cta1">Переглянути портфоліо</button>
+          <button class="btn-secondary" data-i18n="cta2">Забронювати зйомку</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- === ПОРТФОЛІО === -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="portfolio-header">
+        <div>
+          <h2 data-i18n="portfolioTitle">Вибране портфоліо</h2>
+          <div class="gold-line"></div>
+        </div>
+        <div class="portfolio-filters" id="portfolioFilters">
+          <button class="filter-btn active" data-filter="all" data-i18n="filterAll">Усі роботи</button>
+          <button class="filter-btn" data-filter="portrait" data-i18n="filterPortrait">Premium Portrait</button>
+          <button class="filter-btn" data-filter="lovestory" data-i18n="filterLove">Cinematic Love Story</button>
+          <button class="filter-btn" data-filter="fashion" data-i18n="filterFashion">Fashion & Commercial</button>
+        </div>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- 9 елементів портфоліо (по 3 на категорію) -->
+        <div class="portfolio-item" data-category="portrait">
+          <div class="portfolio-img-placeholder"><span>PORTRAIT 1</span></div>
+          <div class="portfolio-overlay"><h4>Глибокий портрет</h4><p>Premium Portrait</p></div>
+        </div>
+        <div class="portfolio-item" data-category="portrait">
+          <div class="portfolio-img-placeholder"><span>PORTRAIT 2</span></div>
+          <div class="portfolio-overlay"><h4>Характер у кадрі</h4><p>Premium Portrait</p></div>
+        </div>
+        <div class="portfolio-item" data-category="portrait">
+          <div class="portfolio-img-placeholder"><span>PORTRAIT 3</span></div>
+          <div class="portfolio-overlay"><h4>Внутрішня сила</h4><p>Premium Portrait</p></div>
+        </div>
+        <div class="portfolio-item" data-category="lovestory">
+          <div class="portfolio-img-placeholder"><span>LOVE 1</span></div>
+          <div class="portfolio-overlay"><h4>Історія кохання</h4><p>Cinematic Love Story</p></div>
+        </div>
+        <div class="portfolio-item" data-category="lovestory">
+          <div class="portfolio-img-placeholder"><span>LOVE 2</span></div>
+          <div class="portfolio-overlay"><h4>Щирість моменту</h4><p>Cinematic Love Story</p></div>
+        </div>
+        <div class="portfolio-item" data-category="lovestory">
+          <div class="portfolio-img-placeholder"><span>LOVE 3</span></div>
+          <div class="portfolio-overlay"><h4>Тепло почуттів</h4><p>Cinematic Love Story</p></div>
+        </div>
+        <div class="portfolio-item" data-category="fashion">
+          <div class="portfolio-img-placeholder"><span>FASHION 1</span></div>
+          <div class="portfolio-overlay"><h4>Брендова естетика</h4><p>Fashion & Commercial</p></div>
+        </div>
+        <div class="portfolio-item" data-category="fashion">
+          <div class="portfolio-img-placeholder"><span>FASHION 2</span></div>
+          <div class="portfolio-overlay"><h4>Комерційний стиль</h4><p>Fashion & Commercial</p></div>
+        </div>
+        <div class="portfolio-item" data-category="fashion">
+          <div class="portfolio-img-placeholder"><span>FASHION 3</span></div>
+          <div class="portfolio-overlay"><h4>Візуальний контент</h4><p>Fashion & Commercial</p></div>
+        </div>
       </div>
     </section>
 
@@ -481,7 +740,7 @@
 
   <script>
     (function() {
-      // Дані для двох мов
+      // Переклади
       const translations = {
         ua: {
           heroName: "Олександр Вернер | Фотограф & Візуальний Режисер",
@@ -489,6 +748,11 @@
           heroSub: "Преміальна кінематографічна та fashion-фотографія. Без штучних поз і напруження — лише ваша справжня естетика, підкреслена авторським світлом і стилем.",
           cta1: "Переглянути портфоліо",
           cta2: "Забронювати зйомку",
+          portfolioTitle: "Вибране портфоліо",
+          filterAll: "Усі роботи",
+          filterPortrait: "Premium Portrait",
+          filterLove: "Cinematic Love Story",
+          filterFashion: "Fashion & Commercial",
           aboutTitle: "Ваша впевненість у кожному кадрі.",
           aboutText: "Моє завдання — не просто натиснути кнопку камери, а створити простір, де ви почуватиметеся вільно. Я вірю, що найсильніші знімки народжуються в моменті, коли ви забуваєте про об'єктив. Ми разом створимо концепцію, яка покаже вашу унікальність — кінематографічно, сміливо та дорого.",
           stat1: "років професійного досвіду",
@@ -523,6 +787,11 @@
           heroSub: "Premium cinematic & fashion photography. No awkward posing, no artificial smiles — just your authentic aesthetic elevated by signature lighting and style.",
           cta1: "Explore Portfolio",
           cta2: "Book a Session",
+          portfolioTitle: "Selected Portfolio",
+          filterAll: "All Works",
+          filterPortrait: "Premium Portrait",
+          filterLove: "Cinematic Love Story",
+          filterFashion: "Fashion & Commercial",
           aboutTitle: "Your confidence captured in every frame.",
           aboutText: "My job isn't just to press the shutter; it's to create an environment where you feel completely free. I believe the most powerful images emerge when you forget the camera is even there. Together, we will build a visual concept that showcases your uniqueness — cinematically, boldly, and flawlessly.",
           stat1: "years of professional expertise",
@@ -559,16 +828,10 @@
       const selectElement = document.querySelector('select');
 
       function setLanguage(lang) {
-        // Оновлюємо активну кнопку
         langButtons.forEach(btn => {
-          if (btn.dataset.lang === lang) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
+          btn.classList.toggle('active', btn.dataset.lang === lang);
         });
 
-        // Оновлюємо текстовий вміст
         elementsToTranslate.forEach(el => {
           const key = el.getAttribute('data-i18n');
           if (translations[lang] && translations[lang][key]) {
@@ -576,7 +839,6 @@
           }
         });
 
-        // Оновлюємо плейсхолдери
         placeholdersToTranslate.forEach(el => {
           const key = el.getAttribute('data-i18n-placeholder');
           if (translations[lang] && translations[lang][key]) {
@@ -584,7 +846,6 @@
           }
         });
 
-        // Оновлюємо дефолтний option у select
         if (selectElement && translations[lang] && translations[lang].formatPlaceholder) {
           const defaultOption = selectElement.querySelector('option[disabled]');
           if (defaultOption) {
@@ -593,17 +854,37 @@
         }
       }
 
-      // Обробник кліку по кнопках мови
       langButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          const lang = this.dataset.lang;
-          setLanguage(lang);
+        btn.addEventListener('click', function() {
+          setLanguage(this.dataset.lang);
         });
       });
 
-      // Встановлюємо українську за замовчуванням (активна кнопка вже UA)
-      // Можна примусово викликати, щоб переконатися
-      // setLanguage('ua'); 
+      // === Фільтрація портфоліо ===
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          const filter = this.dataset.filter;
+          
+          portfolioItems.forEach(item => {
+            if (filter === 'all' || item.dataset.category === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Прокрутка до портфоліо при кліку на CTA
+      document.querySelector('.btn-primary').addEventListener('click', function() {
+        document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+      });
     })();
   </script>
 </body>
