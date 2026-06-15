@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Олександр Вернер | Фотограф & Візуальний Режисер</title>
+  <!-- Підключення шрифтів: елегантний для заголовків + чистий для тексту -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0A0A0A;
+      color: #E0E0E0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Типографіка */
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      color: #F5F0EB;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .accent-text {
+      color: #C8A87C; /* тепле золото */
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 2px;
+      background: #C8A87C;
+      margin: 1rem 0 2rem;
+    }
+
+    /* Навігація */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #F5F0EB;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 1rem;
+      background: rgba(255,255,255,0.04);
+      padding: 0.4rem;
+      border-radius: 40px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(200, 168, 124, 0.2);
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #aaa;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-btn.active {
+      background: #C8A87C;
+      color: #0A0A0A;
+      font-weight: 600;
+    }
+
+    /* Hero секція */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 85vh;
+      justify-content: center;
+      padding: 2rem 0 4rem;
+      position: relative;
+    }
+
+    .hero-name {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: #C8A87C;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5.2rem);
+      line-height: 1.15;
+      margin-bottom: 1.8rem;
+      max-width: 900px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: #B0B0B0;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #C8A87C;
+      color: #0A0A0A;
+      border: none;
+      padding: 1rem 2.4rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.3s, transform 0.2s;
+      text-transform: uppercase;
+    }
+
+    .btn-primary:hover {
+      background: #dbb88c;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #F5F0EB;
+      border: 1px solid #C8A87C;
+      padding: 1rem 2.4rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s;
+      text-transform: uppercase;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(200, 168, 124, 0.1);
+    }
+
+    /* Про мене */
+    .about-section {
+      padding: 6rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .about-text p {
+      font-size: 1.15rem;
+      color: #C0C0C0;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item h3 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: #C8A87C;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-item p {
+      font-size: 0.9rem;
+      color: #999;
+      margin: 0;
+    }
+
+    /* Напрямки */
+    .services-section {
+      padding: 5rem 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: #111111;
+      padding: 2.5rem 2rem;
+      border-radius: 4px;
+      border: 1px solid #222;
+      transition: border-color 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: #C8A87C;
+    }
+
+    .service-number {
+      color: #C8A87C;
+      font-weight: 300;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .service-card p {
+      color: #A0A0A0;
+      font-weight: 300;
+    }
+
+    /* Процес */
+    .process-section {
+      padding: 5rem 0;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .step {
+      border-left: 2px solid #C8A87C;
+      padding-left: 1.8rem;
+    }
+
+    .step-num {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      color: #C8A87C;
+      opacity: 0.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .step h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .step p {
+      color: #A0A0A0;
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    /* Контакти */
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      padding: 5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .contact-info p {
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #D0D0D0;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    input, select, textarea {
+      background: #141414;
+      border: 1px solid #2A2A2A;
+      padding: 1rem;
+      color: #F5F0EB;
+      font-family: 'Inter', sans-serif;
+      border-radius: 2px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #C8A87C;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      color: #666;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.03);
+    }
+
+    @media (max-width: 768px) {
+      .about-section, .contact-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .steps-container {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Навігація з перемикачем мов -->
+    <nav>
+      <div class="logo">WERNER</div>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" data-lang="ua">UA</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-name" data-i18n="heroName">Олександр Вернер | Фотограф & Візуальний Режисер</div>
+      <h1 data-i18n="heroTitle">Створюю кадри, які стають вашою найкращою історією.</h1>
+      <p data-i18n="heroSub">Преміальна кінематографічна та fashion-фотографія. Без штучних поз і напруження — лише ваша справжня естетика, підкреслена авторським світлом і стилем.</p>
+      <div class="cta-group">
+        <button class="btn-primary" data-i18n="cta1">Переглянути портфоліо</button>
+        <button class="btn-secondary" data-i18n="cta2">Забронювати зйомку</button>
+      </div>
+    </section>
+
+    <!-- Про мене -->
+    <section class="about-section" id="about">
+      <div>
+        <h2 data-i18n="aboutTitle">Ваша впевненість у кожному кадрі.</h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="about-text">
+        <p data-i18n="aboutText">Моє завдання — не просто натиснути кнопку камери, а створити простір, де ви почуватиметеся вільно. Я вірю, що найсильніші знімки народжуються в моменті, коли ви забуваєте про об'єктив. Ми разом створимо концепцію, яка покаже вашу унікальність — кінематографічно, сміливо та дорого.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h3>5+</h3>
+            <p data-i18n="stat1">років професійного досвіду</p>
+          </div>
+          <div class="stat-item">
+            <h3>300+</h3>
+            <p data-i18n="stat2">задоволених клієнтів</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Напрямки -->
+    <section class="services-section" id="services">
+      <h2 data-i18n="servicesTitle">Формати співпраці</h2>
+      <div class="gold-line"></div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <h3 data-i18n="serv1Title">Premium Portrait</h3>
+          <p data-i18n="serv1Desc">глибокі персональні портрети. Фокус на вашому характері, статусі та внутрішній силі.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-number">02</div>
+          <h3 data-i18n="serv2Title">Cinematic Love Story</h3>
+          <p data-i18n="serv2Desc">жива історія ваших почуттів. Кінематографічні кадри, сповнені тепла, щирості та пристрасті.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <h3 data-i18n="serv3Title">Fashion & Commercial</h3>
+          <p data-i18n="serv3Desc">комерційний візуальний контент найвищого рівня для брендів, експертів та особистого бренду.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Процес роботи -->
+    <section class="process-section" id="process">
+      <h2 data-i18n="processTitle">Комфортний процес від ідеї до готових знімків</h2>
+      <div class="gold-line"></div>
+      <div class="steps-container">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4 data-i18n="step1Title">Концепція та мудборд</h4>
+          <p data-i18n="step1Desc">Ми детально обговорюємо ідею, підбираємо референси, колірну гаму та настрій зйомки.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4 data-i18n="step2Title">Продюсування зйомки</h4>
+          <p data-i18n="step2Desc">Я повністю закриваю питання вибору локації, студії та консультую щодо стилю одягу.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4 data-i18n="step3Title">Легка та невимушена зйомка</h4>
+          <p data-i18n="step3Desc">Я повністю веду вас у процесі, допомагаю з позиціонуванням тіла та емоціями. Стресу не буде.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h4 data-i18n="step4Title">Швидкий результат</h4>
+          <p data-i18n="step4Desc">Протягом 7 днів ви отримуєте перші анонсні кадри в преміальній авторській ретуші.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакти -->
+    <section class="contact-section" id="contact">
+      <div>
+        <h2 data-i18n="contactTitle">Почнімо створення вашої візуальної історії</h2>
+        <div class="gold-line"></div>
+        <div class="contact-info">
+          <p>📍 <span data-i18n="location">Базуюся у Києві (доступний для зйомок по всьому світу)</span></p>
+          <p>📞 <span>Telegram / WhatsApp: +38 (095) xxx-xx-xx</span></p>
+          <p>📱 <span>Instagram: @werner_photography</span></p>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form">
+          <input type="text" placeholder="Ваше ім'я" data-i18n-placeholder="namePlaceholder">
+          <input type="text" placeholder="Номер телефону / Месенджер" data-i18n-placeholder="phonePlaceholder">
+          <select data-i18n-placeholder="formatPlaceholder">
+            <option value="" disabled selected>Який формат зйомки вас цікавить?</option>
+            <option>Premium Portrait</option>
+            <option>Cinematic Love Story</option>
+            <option>Fashion & Commercial</option>
+          </select>
+          <button type="button" class="btn-primary" style="width:100%;" data-i18n="sendBtn">Надіслати запит</button>
+        </form>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span data-i18n="footer">© 2026 Олександр Вернер. Зберігаючи вашу справжню естетику. Усі права захищені.</span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // Дані для двох мов
+      const translations = {
+        ua: {
+          heroName: "Олександр Вернер | Фотограф & Візуальний Режисер",
+          heroTitle: "Створюю кадри, які стають вашою найкращою історією.",
+          heroSub: "Преміальна кінематографічна та fashion-фотографія. Без штучних поз і напруження — лише ваша справжня естетика, підкреслена авторським світлом і стилем.",
+          cta1: "Переглянути портфоліо",
+          cta2: "Забронювати зйомку",
+          aboutTitle: "Ваша впевненість у кожному кадрі.",
+          aboutText: "Моє завдання — не просто натиснути кнопку камери, а створити простір, де ви почуватиметеся вільно. Я вірю, що найсильніші знімки народжуються в моменті, коли ви забуваєте про об'єктив. Ми разом створимо концепцію, яка покаже вашу унікальність — кінематографічно, сміливо та дорого.",
+          stat1: "років професійного досвіду",
+          stat2: "задоволених клієнтів",
+          servicesTitle: "Формати співпраці",
+          serv1Title: "Premium Portrait",
+          serv1Desc: "глибокі персональні портрети. Фокус на вашому характері, статусі та внутрішній силі.",
+          serv2Title: "Cinematic Love Story",
+          serv2Desc: "жива історія ваших почуттів. Кінематографічні кадри, сповнені тепла, щирості та пристрасті.",
+          serv3Title: "Fashion & Commercial",
+          serv3Desc: "комерційний візуальний контент найвищого рівня для брендів, експертів та особистого бренду.",
+          processTitle: "Комфортний процес від ідеї до готових знімків",
+          step1Title: "Концепція та мудборд",
+          step1Desc: "Ми детально обговорюємо ідею, підбираємо референси, колірну гаму та настрій зйомки.",
+          step2Title: "Продюсування зйомки",
+          step2Desc: "Я повністю закриваю питання вибору локації, студії та консультую щодо стилю одягу.",
+          step3Title: "Легка та невимушена зйомка",
+          step3Desc: "Я повністю веду вас у процесі, допомагаю з позиціонуванням тіла та емоціями. Стресу не буде.",
+          step4Title: "Швидкий результат",
+          step4Desc: "Протягом 7 днів ви отримуєте перші анонсні кадри в преміальній авторській ретуші.",
+          contactTitle: "Почнімо створення вашої візуальної історії",
+          location: "Базуюся у Києві (доступний для зйомок по всьому світу)",
+          namePlaceholder: "Ваше ім'я",
+          phonePlaceholder: "Номер телефону / Месенджер",
+          formatPlaceholder: "Який формат зйомки вас цікавить?",
+          sendBtn: "Надіслати запит",
+          footer: "© 2026 Олександр Вернер. Зберігаючи вашу справжню естетику. Усі права захищені."
+        },
+        en: {
+          heroName: "Oleksandr Werner | Photographer & Visual Director",
+          heroTitle: "Creating frames that tell your ultimate story.",
+          heroSub: "Premium cinematic & fashion photography. No awkward posing, no artificial smiles — just your authentic aesthetic elevated by signature lighting and style.",
+          cta1: "Explore Portfolio",
+          cta2: "Book a Session",
+          aboutTitle: "Your confidence captured in every frame.",
+          aboutText: "My job isn't just to press the shutter; it's to create an environment where you feel completely free. I believe the most powerful images emerge when you forget the camera is even there. Together, we will build a visual concept that showcases your uniqueness — cinematically, boldly, and flawlessly.",
+          stat1: "years of professional expertise",
+          stat2: "happy clients who keep coming back",
+          servicesTitle: "Services & Formats",
+          serv1Title: "Premium Portrait",
+          serv1Desc: "profound personal portraits focusing on your character, status, and inner power.",
+          serv2Title: "Cinematic Love Story",
+          serv2Desc: "a living story of your emotions. Cinematic frames filled with warmth, authenticity, and passion.",
+          serv3Title: "Fashion & Commercial",
+          serv3Desc: "high-end commercial visual content for personal brands, experts, and fashion labels.",
+          processTitle: "A seamless experience from concept to final frames",
+          step1Title: "Concept & Mood board",
+          step1Desc: "We discuss your goals, select references, color palettes, and define the overall aesthetic.",
+          step2Title: "Pre-production",
+          step2Desc: "I take care of location scouting, studio booking, and provide professional styling guidance.",
+          step3Title: "Stress-free Shooting",
+          step3Desc: "I fully guide you through posing, angles, and expressions. It is a completely relaxed and fun process.",
+          step4Title: "Fast Delivery",
+          step4Desc: "You receive your first preview images in signature high-end retouching within 7 days.",
+          contactTitle: "Let’s bring your vision to life",
+          location: "Based in Kyiv, Ukraine (available for worldwide travel)",
+          namePlaceholder: "Your Name",
+          phonePlaceholder: "Phone / Telegram link",
+          formatPlaceholder: "What format are you interested in?",
+          sendBtn: "Send Request",
+          footer: "© 2026 Oleksandr Werner. Capturing your true aesthetic. All rights reserved."
+        }
+      };
+
+      const langButtons = document.querySelectorAll('.lang-btn');
+      const elementsToTranslate = document.querySelectorAll('[data-i18n]');
+      const placeholdersToTranslate = document.querySelectorAll('[data-i18n-placeholder]');
+      const selectElement = document.querySelector('select');
+
+      function setLanguage(lang) {
+        // Оновлюємо активну кнопку
+        langButtons.forEach(btn => {
+          if (btn.dataset.lang === lang) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+
+        // Оновлюємо текстовий вміст
+        elementsToTranslate.forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+          }
+        });
+
+        // Оновлюємо плейсхолдери
+        placeholdersToTranslate.forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (translations[lang] && translations[lang][key]) {
+            el.placeholder = translations[lang][key];
+          }
+        });
+
+        // Оновлюємо дефолтний option у select
+        if (selectElement && translations[lang] && translations[lang].formatPlaceholder) {
+          const defaultOption = selectElement.querySelector('option[disabled]');
+          if (defaultOption) {
+            defaultOption.textContent = translations[lang].formatPlaceholder;
+          }
+        }
+      }
+
+      // Обробник кліку по кнопках мови
+      langButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          const lang = this.dataset.lang;
+          setLanguage(lang);
+        });
+      });
+
+      // Встановлюємо українську за замовчуванням (активна кнопка вже UA)
+      // Можна примусово викликати, щоб переконатися
+      // setLanguage('ua'); 
+    })();
+  </script>
+</body>
+</html>
